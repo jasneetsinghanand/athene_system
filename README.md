@@ -1,4 +1,12 @@
+This repository is a fork of the original athene_system which stood at the second number in the FNC-1 challenge. I have changed the dataset, by using SemEval2016 Task 6 data. 
 
+SemEval2016 Task 6 - Stance Detection Challenge - Dataset is a set of pairs of Target-Tweet labelled with FAVOR,AGAINST, NONE categories.
+
+FNC-1 - Stance Detection Challenge - Dataset is a set of pairs of News Article-Headline labelled with AGREES,DISAGREES, DISCUSSES, UNRELATED categories.
+
+We had to change the nueral networks first and last layers in order to accomodate th echanges of the dataset.
+
+Following are the instruction as it from the original reporsitory of Athene_System
 
 ![2010-07-07_ukp_banner](https://user-images.githubusercontent.com/29311022/27184688-27629126-51e3-11e7-9a23-276628da2430.png)
 
