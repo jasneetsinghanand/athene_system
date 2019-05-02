@@ -1,7 +1,8 @@
 #Adapted from https://github.com/FakeNewsChallenge/fnc-1/blob/master/scorer.py
 #Original credit - @bgalbraith
 
-LABELS = ['agree', 'disagree', 'discuss', 'unrelated']
+# LABELS = ['agree', 'disagree', 'discuss', 'unrelated']
+LABELS = ['FAVOR', 'AGAINST', 'NONE']
 LABELS_RELATED = ['unrelated','related']
 RELATED = LABELS[0:3]
 

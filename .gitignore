@@ -4,8 +4,11 @@ base/
 .pydevproject
 .settings/
 .*.pyc
-
-
+data/fnc-1/f1/*
+data/ppdb/*
+data/fnc-1/
+data/StanceDataset/*
+data/pickled/*
 # default gitignores for python from https://github.com/github/gitignore/blob/master/Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/

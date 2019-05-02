@@ -1,3 +1,6 @@
+# Just disables the warning, doesn't enable AVX/FMA
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import sys, os.path as path
 from builtins import isinstance
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
@@ -28,7 +31,7 @@ from fnc.refs.utils.score import LABELS, score_submission
 from fnc.refs.utils.dataset import DataSet
 from fnc.refs.utils.testDataset  import TestDataSet
 import csv
-
+import pdb
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 def get_args():
@@ -134,13 +137,13 @@ def generate_features_test(stances, dataset, name, feature_list, features_dir):
                     }
 
     stanceCounter = 0
+    pdb.set_trace()
     for stance in stances:
         h.append(stance['Headline'])
         b.append(dataset.articles[stance['Body ID']])
         bodyId.append(stance['Body ID'])
         headId.append(name+str(stanceCounter))
         stanceCounter += 1
-        
         
     X_feat = []
     for feature in feature_list:
@@ -560,13 +563,14 @@ def final_clf_prediction(data_path, features, features_dir, scorer_type, run_fin
 
     # load model [scorer_type]_final_2 classifier
     filename = scorer_type + "_final.sav"
-    load_clf = load_model(parent_folder + scorer_type + "_final_2/",
+    load_clf = load_model(parent_folder + scorer_type + "_final_new_8/",
                           filename)  # TODO set the correct path to the classifier here
 
-    print("Load model for final prediction of test set: " + parent_folder + scorer_type + "_final_2/" + filename)
+    print("Load model for final prediction of test set: " + parent_folder + scorer_type + "_final_new_8/" + filename)
 
     # predict classes and turn into labels
     y_predicted = load_clf.predict(X_final_test)
+    pdb.set_trace()
     predicted = [LABELS[int(a)] for a in y_predicted]
 
     # create folder to save the file
@@ -690,7 +694,7 @@ def pipeline():
               'stanford_wordsim_1sent'],
              [])
         ]
-
+        pdb.set_trace()
         for scorer_type, features, non_bleeding_features in feature_list:
 
             # print classifier and features for this loop

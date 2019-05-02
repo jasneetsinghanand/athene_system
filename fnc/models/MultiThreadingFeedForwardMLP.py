@@ -29,7 +29,7 @@ class MultiThreadingFeedForwardMLP(BaseEstimator):
         Stochastic mode:        batch_size = 1
         Paper on this subject:  https://arxiv.org/abs/1609.04836
     """
-    def __init__(self, pickle_file_ext=-1, save_folder=None, n_classes=4, batch_size=200, hm_epochs=15, keep_prob_const=1.0,
+    def __init__(self, pickle_file_ext=-1, save_folder=None, n_classes=3, batch_size=200, hm_epochs=15, keep_prob_const=1.0,
                  optimizer='adam', learning_rate=0.001, step_decay_LR=False, bias_init=0.0,
                  weight_init='xavier', hidden_layers=(600, 600, 600),
                  activation_function='relu', seed=12345):
@@ -77,8 +77,8 @@ class MultiThreadingFeedForwardMLP(BaseEstimator):
             except ValueError as err:
                 print(err.args)
 
-        if self.n_classes == 4:
-            self.classes_ = np.asarray([0, 1, 2, 3])
+        if self.n_classes == 3:
+            self.classes_ = np.asarray([0, 1, 2])
         else:
             self.classes_ = np.asarray([0, 1])
 
